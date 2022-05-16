@@ -40,6 +40,7 @@ before_action :set_question, only: %i[update show destroy edit hide]
   end
 
   private
+
   def question_params
     params.require(:question).permit(:body, :user_id)
   end
@@ -47,6 +48,4 @@ before_action :set_question, only: %i[update show destroy edit hide]
   def set_question
     @question = Question.find(params[:id])
   end
-
-
 end

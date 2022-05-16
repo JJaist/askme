@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     put :hide, on: :member
     patch :hide, on: :member
   end
+
+  resources :users, only: %i[new create]
 end
