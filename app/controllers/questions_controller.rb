@@ -23,6 +23,7 @@ before_action :set_question, only: %i[update show destroy edit hide]
   end
 
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
@@ -36,7 +37,7 @@ before_action :set_question, only: %i[update show destroy edit hide]
   def hide
     @question.update(hidden: true)
 
-    redirect_to questions_path
+    redirect_to action: :show
   end
 
   private
