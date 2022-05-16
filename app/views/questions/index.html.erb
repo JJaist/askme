@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class="title-lg mb">Все вопросы</h2>
+
+  <% @questions.each do |question| %>
+    <% hidden_klass = question.hidden ? "question-hidden" : "question-visible"%>
+    <%= content_tag :p, class: ["mb-sm", hidden_klass] do %>
+      <%= link_to "Вопрос #{question.id}", question_path(question)%>
+    <%end%>
+  <%end%>
+  <p class="mt">
+    <%= link_to "Создать новый вопрос", new_question_path, class: 'button button-main'%>
+  </p>
+</div>
