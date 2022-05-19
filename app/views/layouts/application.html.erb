@@ -12,6 +12,14 @@
 
   <body>
     <div class="wrapper">
+      <% if flash[:notice].present? %>
+        <p class="mb mt message message-notice"><%= flash[:notice] %></p>
+        <%elsif flash[:alert].present?%>
+        <p class="mb mt message message-alert"><%= flash[:alert] %></p>
+      <% end %>
+    </div>
+
+    <div class="wrapper">
       <div class="navbar">
       <p class="title-sm text-bold"><%= link_to "AskMe!", root_path%></p>
         <div>
@@ -24,14 +32,6 @@
           <% end %>
         </div>
       </div>
-    </div>
-
-    <div class="wrapper">
-      <% if flash[:notice].present? %>
-        <p class="mb mt message message-notice"><%= flash[:notice] %></p>
-        <%elsif flash[:alert].present?%>
-        <p class="mb mt message message-alert"><%= flash[:alert] %></p>
-      <% end %>
     </div>
     <%= yield %>
   </body>
