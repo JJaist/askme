@@ -37,7 +37,7 @@ before_action :set_question, only: %i[update show destroy edit hide]
   def hide
     @question.update(hidden: true)
 
-    redirect_to action: :show
+    redirect_to questions_path
   end
 
   private

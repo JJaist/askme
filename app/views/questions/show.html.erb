@@ -1,7 +1,9 @@
-<div class="container">
-  <h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
+<div class="wrapper">
+  <div class="container">
+    <h2 class="title-lg mb">Вопрос <%= @question.id %></h2>
 
-  <%= render 'question', question: @question %>
+    <%= render 'question', question: @question %>
 
-  <p class="mt"><%= link_to "Все вопросы", questions_path %></p>
+    <p class="mt"><%= link_to "Все вопросы", questions_path %></p>
+  </div>
 </div>
