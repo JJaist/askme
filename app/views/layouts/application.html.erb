@@ -13,20 +13,19 @@
   <body>
     <div class="wrapper">
       <div class="navbar">
-        <p class="title-sm text-bold"><%= link_to "AskMe!", root_path%>
-          <div>
-            <% if current_user.present?%>
-            <%= content_tag "span", "@#{current_user.nickname}", class: "mr-sm"%>
-            <%= button_to "Выйти", session_path, method: :delete%>
-            <% else%>
-            <%= link_to "Регистрация", new_user_path, class: "button button-yellow mr-sm" %>
-            <%= link_to "Вход", new_session_path, class: "button button-yellow" %>
-            <% end %>
-          </div>
-        </p>
-
+      <p class="title-sm text-bold"><%= link_to "AskMe!", root_path%></p>
+        <div>
+          <% if current_user.present?%>
+          <%= content_tag "span", "@#{current_user.nickname}", class: "mr-sm"%>
+          <%= button_to "Выйти", session_path, method: :delete%>
+          <% else%>
+          <%= link_to "Регистрация", new_user_path, class: "button button-yellow mr-sm" %>
+          <%= link_to "Вход", new_session_path, class: "button button-yellow" %>
+          <% end %>
+        </div>
       </div>
     </div>
+
     <div class="wrapper">
       <% if flash[:notice].present? %>
         <p class="mb mt message message-notice"><%= flash[:notice] %></p>

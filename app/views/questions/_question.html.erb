@@ -6,11 +6,10 @@
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
   </div>
-
   <div>
     <%= link_to fa_icon('pencil'), edit_question_path(question),
-      title: 'Изменить вопрос' %>
+    title: 'Изменить вопрос' %>
     <%= button_to fa_icon('trash-o'), question_path(question),
-      method: :delete, title: 'Удалить вопрос' %>
+    method: :delete, title: 'Удалить вопрос' %>
   </div>
 </div>

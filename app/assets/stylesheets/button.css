@@ -1,6 +1,6 @@
 .button {
   color: #fff;
-  display: inline-block;
+  display: inline-flex;
   padding: 8px 13px 7px;
   border: none;
   text-decoration: none;
