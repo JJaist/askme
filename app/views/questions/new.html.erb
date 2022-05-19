@@ -1,7 +1,9 @@
 <div class="wrapper">
   <div class="container">
     <h2 class="title-lg mb">Новый вопрос</h2>
-
+      <% @question.errors.full_messages.each do |message| %>
+        <p class="mb-sm text-red"><%= message %></p>
+      <% end %>
     <%= render 'form', question: @question %>
   </div>
 </div>

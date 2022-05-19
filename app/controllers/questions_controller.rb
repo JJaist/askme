@@ -2,9 +2,15 @@ class QuestionsController < ApplicationController
 before_action :set_question, only: %i[update show destroy edit hide]
 
   def create
-    question = Question.create(question_params)
+  question_params = params.require(:question).permit(:body, :user_id)
+  @question = Question.new(question_params)
 
-    redirect_to question_path(question)
+    if  @question.save
+      redirect_to root_path, notice: "Новый вопрос создан"
+    else
+      flash.now[:alert] = 'При попытке создать вопрос вознилки ошибки!'
+      render :new
+    end
   end
 
   def update
