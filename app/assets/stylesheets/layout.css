@@ -1,11 +1,12 @@
 body {
+
   background: #03071E;
   display: block;
   margin: 2em;
 }
 
 .wrapper {
-  max-width: 800px;
+  max-width: 1200px;
   margin:0 2em 0 2em;
   width: 100%;
   display: block;
