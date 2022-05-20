@@ -1,6 +1,7 @@
 <div class="wrapper">
   <div class="container">
-    <h2 class="title-lg mb">Новый вопрос</h2>
+    <h2 class="title-lg ">Новый вопрос</h2>
+    <p class="mb">для <%= link_to display_nickname(@user), user_path(@user) %></p>
       <% @question.errors.full_messages.each do |message| %>
         <p class="mb-sm text-red"><%= message %></p>
       <% end %>

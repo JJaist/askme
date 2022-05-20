@@ -4,6 +4,10 @@
       <h2 class="title-lg mt-lg"><%= @user.name%></h2>
       <p class="text-bold mt mb-lg"><%= display_nickname(@user)%></p>
     </div>
+    <div class="container">
+      <%= link_to "Cпроси меня", new_question_path(user_id: @user.id), class: "button button-yellow"%>
+    </div>
+
     <p class="mt">
       <%= render 'questions/form', question: @question %>
     </p>

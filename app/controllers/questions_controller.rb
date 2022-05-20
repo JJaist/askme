@@ -6,9 +6,9 @@ before_action :set_question, only: %i[update show destroy edit hide]
     @question = Question.new(question_params)
 
     if  @question.save
-      redirect_to root_path, notice: "Новый вопрос создан"
+      redirect_to user_path(@question.user), notice: "Новый вопрос создан"
     else
-      flash.now[:alert] = 'При попытке создать вопрос вознилки ошибки!'
+      flash.now[:alert] = "При попытке создать вопрос вознилки ошибки!"
       render :new
     end
   end
@@ -16,13 +16,14 @@ before_action :set_question, only: %i[update show destroy edit hide]
   def update
     @question.update(question_params)
 
-    redirect_to question_path(@question)
+    redirect_to user_path(@question.user)
   end
 
   def destroy
+    @user = @question.user
     @question.destroy
 
-    redirect_to questions_path
+    redirect_to user_path(@user), notice: "Вопрос удален"
   end
 
   def show
@@ -34,7 +35,8 @@ before_action :set_question, only: %i[update show destroy edit hide]
   end
 
   def new
-    @question = Question.new
+    @user = User.find(params[:user_id])
+    @question = Question.new(user: @user)
   end
 
   def edit
