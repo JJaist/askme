@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="user-box">
+      <h2 class="title-lg mt-lg"><%= @user.name%></h2>
+      <p class="text-bold mt mb-lg"><%= display_nickname(@user)%></p>
+    </div>
+    <p class="mt">
+      <%= render 'questions/form', question: @question %>
+    </p>
+  </div>
+
+  <div class="container mt-sm">
+    <h2 class="title-lg">
+      <%= @questions.count %>
+      <%= inclination(@questions.count, 'вопрос', 'вопроса', 'вопросов') %>
+    </h2>
+  </div>
+
+  <% @questions.each do |question| %>
+    <div class="mt-sm container">
+      <%= render question %>
+    </div>
+  <% end %>
+</div>
