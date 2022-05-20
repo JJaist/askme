@@ -20,7 +20,7 @@
     </div>
 
     <div class="wrapper">
-      <div class="navbar">
+      <%= content_tag "div", class: "navbar", style: "background-color: #{current_user_header_color}" do %>
       <p class="title-sm text-bold"><%= link_to "AskMe!", root_path%></p>
         <div>
           <% if current_user.present?%>
@@ -32,7 +32,7 @@
           <% end %>
         </div>
       </div>
-    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

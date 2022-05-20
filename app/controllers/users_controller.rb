@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
 
       redirect_to root_path, notice: 'Вы успешно зарегистрировались!'
     else
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def user_params
   params.require(:user).permit(
-        :name, :nickname, :email, :password, :password_confirmation
+        :name, :nickname, :email, :header_color, :password, :password_confirmation
   )
   end
 end
