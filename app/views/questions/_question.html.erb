@@ -7,13 +7,15 @@
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
   </div>
-  <div>
-    <%= link_to fa_icon('pencil'), edit_question_path(question),
-    title: 'Изменить вопрос' %>
-    <%= button_to fa_icon('trash-o'), question_path(question),
-    method: :delete, title: 'Удалить вопрос' %>
-      <% unless question.hidden %>
-    <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос'%>
-  <% end %>
-  </div>
+  <% if current_user == question.user %>
+    <div>
+      <%= link_to fa_icon('pencil'), edit_question_path(question),
+      title: 'Изменить вопрос' %>
+      <%= button_to fa_icon('trash-o'), question_path(question),
+      method: :delete, title: 'Удалить вопрос' %>
+        <% unless question.hidden %>
+      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос'%>
+    <% end %>
+    </div>
+  <%end%>
 </div>
