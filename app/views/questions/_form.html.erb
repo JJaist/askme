@@ -2,6 +2,12 @@
   <%= form.hidden_field :user_id %>
   <p><%= form.label :body, 'текст вопроса' %></p>
   <p><%= form.text_area :body, rows: 5, class: 'form-text-area' %></p>
+
+  <% if question.persisted?%>
+    <p class="mt"><%= form.label :answer, 'Oтвет' %></p>
+    <p><%= form.text_area :answer, rows: 5, class: 'form-text-area' %></p>
+  <%end%>
+
   <p class="mt"><%= form.submit 'сохранить', class: 'button button-main'%></p>
   <p class="mt"><%= link_to 'Вернуться', :back%></p>
 <%end%>
