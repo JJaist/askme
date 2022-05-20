@@ -38,3 +38,11 @@ a, button {
 .text-dark-red {
   color: #9d0208;
 }
+
+.text-light-grey {
+  color: #c0c0c0;
+}
+
+.text-center {
+  text-align: center;
+}
