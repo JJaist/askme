@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
 before_action :set_question, only: %i[update show destroy edit hide]
 
   def create
-  question_params = params.require(:question).permit(:body, :user_id)
-  @question = Question.new(question_params)
+    question_params = params.require(:question).permit(:body, :user_id)
+    @question = Question.new(question_params)
 
     if  @question.save
       redirect_to root_path, notice: "Новый вопрос создан"
