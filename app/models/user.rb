@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   before_validation :downcase_nickname
 
+  validates :header_color, presence: true, format: { with: /\A#\h{3}{1,2}\z/ }
+
   validates :email, presence: true, uniqueness: true,
     format: { with: /([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})/ }
   validates :nickname, presence: true, uniqueness: true,
