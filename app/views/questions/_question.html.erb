@@ -1,6 +1,6 @@
 <% hidden_klass = question.hidden ? "question-hidden" : "question-visible"%>
   <%= content_tag :div, class: ["mb-sm", hidden_klass] do %>
-  <%= simple_format(question.body) %>
+  <%= simple_format h(question.body) %>
 <%end%>
 
 <% if question.answer.present?%>
