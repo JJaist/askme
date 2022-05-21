@@ -10,9 +10,9 @@
 <%end%>
 
   <% if question.author %>
-    <p class="text-sm text-blue">Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id)%></p>
+    <p class="text-sm text-gray">Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id)%></p>
   <% else %>
-    <p class="text-sm text-blue">Вопрос от анонима</p>
+    <p class="text-sm text-gray">Вопрос от анонима</p>
   <% end %>
 
 <div class="text-sm question-footer">
