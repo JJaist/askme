@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: %i[new create destroy]
-  resources :users, expect: %i[index]
+  resources :users, param: :nickname, expect: %i[index]
 end
