@@ -43,6 +43,10 @@ a, button {
   color: #c0c0c0;
 }
 
+.text-blue {
+  color: #00ff00;
+}
+
 .text-center {
   text-align: center;
 }

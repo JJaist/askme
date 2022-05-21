@@ -5,14 +5,21 @@
 
 <% if question.answer.present?%>
   <div class="mb-sm text-dark-red">
-    <%= question.answer%>
+    <p><%= question.answer%></p>
   </div>
 <%end%>
+
+  <% if question.author %>
+    <p class="text-blue">Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id)%></p>
+  <% else %>
+    <p class="text-blue">Вопрос от анонима</p>
+  <% end %>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
     <%= l(question.created_at, format: :short) %>
   </div>
+
   <% if current_user == question.user %>
     <div>
       <% edit_icon = (question.answer.present?) ? 'pencil' : 'reply'%>
