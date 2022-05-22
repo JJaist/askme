@@ -1,19 +1,17 @@
-<% hidden_klass = question.hidden ? "question-hidden" : "question-visible"%>
+<% hidden_klass = question.hidden ? "question-hidden" : "question-visible" %>
   <%= content_tag :div, class: ["mb-sm", hidden_klass] do %>
   <%= simple_format h(question.body) %>
-<%end%>
+<% end %>
 
-<% if question.answer.present?%>
+<% if question.answer.present? %>
   <div class="mb-sm text-dark-red">
-    <p><%= question.answer%></p>
+    <p><%= question.answer %></p>
   </div>
-<%end%>
+<% end %>
 
-  <% if question.author %>
-    <p class="text-sm text-gray">Вопрос от: <%= link_to display_nickname(question.author), user_path(question.author_id)%></p>
-  <% else %>
-    <p class="text-sm text-gray">Вопрос от анонима</p>
-  <% end %>
+<p class="text-sm text-gray">
+  <%= author_present(question.author) %>
+</p>
 
 <div class="text-sm question-footer">
   <div class="text-grey">
@@ -22,15 +20,15 @@
 
   <% if current_user == question.user %>
     <div>
-      <% edit_icon = (question.answer.present?) ? 'pencil' : 'reply'%>
+      <% edit_icon = (question.answer.present?) ? 'pencil' : 'reply' %>
 
       <%= link_to fa_icon(edit_icon), edit_question_path(question),
       title: 'Изменить вопрос', class:  'mr-sm' %>
       <%= button_to fa_icon('trash-o'), question_path(question),
       method: :delete, title: 'Удалить вопрос' %>
         <% unless question.hidden %>
-      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос'%>
+      <%= button_to fa_icon('eye-slash'), hide_question_path(question), method: :put, title: 'Скрыть вопрос' %>
     <% end %>
     </div>
-  <%end%>
+  <% end %>
 </div>
