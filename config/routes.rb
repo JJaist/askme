@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :questions do
     put :hide, on: :member
-    patch :hide, on: :member
   end
 
   resource :session, only: %i[new create destroy]

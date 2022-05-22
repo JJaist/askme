@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
 
   def create
     question_params = params.require(:question).permit(:body, :user_id)
-    @question = Question.create(question_params)
+    @question = Question.new(question_params)
     @question.author = current_user
 
     if  @question.save
@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @user = User.find_by(params[:nickname])
+    @user = User.find_by(nickname: params[:nickname])
     @question = Question.new(user: @user)
   end
 
